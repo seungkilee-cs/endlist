@@ -25,8 +25,9 @@ config :endlist_back, EndlistBackWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "vevbr24AuA+1Wga1mmhb/wMe12kDPMFxz7jFwxeGuXT8+XoNy812HuntkH28Y+ek",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:endlist_back, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:endlist_back, ~w(--watch)]}
+    # esbuild: {Esbuild, :install_and_run, [:endlist_back, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:endlist_back, ~w(--watch)]},
+    node: ["esbuild.js", "--watch", cd: Path.expand("../assets", __DIR__)]
   ]
 
 # ## SSL Support
